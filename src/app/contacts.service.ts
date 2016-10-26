@@ -1,29 +1,32 @@
 import { Http } from '@angular/http';
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 
 import { Contact } from './models/contact';
+
+import { API_ENDPOINT } from './app.tokens';
 
 @Injectable()
 export class ContactsService {
 
-  API_ENDPOINT = 'http://localhost:4201/api';
-
-  constructor(private http: Http) { }
+  constructor(
+    private http: Http,
+    @Inject(API_ENDPOINT) private api
+  ) { }
 
   getContacts() {
-    return this.http.get(`${this.API_ENDPOINT}/contacts`)
+    return this.http.get(`${this.api}/contacts`)
       .map(res => res.json())
       .map(data => data.items);
   }
 
   getContact(id: string) {
-    return this.http.get(`${this.API_ENDPOINT}/contacts/${id}`)
+    return this.http.get(`${this.api}/contacts/${id}`)
       .map(res => res.json())
       .map(data => data.item);
   }
 
   updateContact(contact: Contact) {
-    return this.http.put(`${this.API_ENDPOINT}/contacts/${contact.id}`, contact);
+    return this.http.put(`${this.api}/contacts/${contact.id}`, contact);
   }
 
 }
