@@ -31,7 +31,11 @@ export class ContactsEditorComponent implements OnInit {
 
   save(contact: Contact) {
     this.contactsService.updateContact(contact)
-      .subscribe(() => this.router.navigate(['/contact', contact.id]));
+      .subscribe(res => {
+        if (res.status === 200) {
+          this.router.navigate(['/contact', contact.id]);
+        }
+      });
   }
 
 }
