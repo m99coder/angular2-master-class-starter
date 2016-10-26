@@ -25,15 +25,19 @@ export class ContactsEditorComponent implements OnInit {
       .subscribe(contact => this.contact = contact);
   }
 
-  cancel(contact: Contact) {
+  goToDetails(contact: Contact) {
     this.router.navigate(['/contact', contact.id]);
+  }
+
+  cancel(contact: Contact) {
+    this.goToDetails(contact);
   }
 
   save(contact: Contact) {
     this.contactsService.updateContact(contact)
       .subscribe(res => {
         if (res.status === 200) {
-          this.router.navigate(['/contact', contact.id]);
+          this.goToDetails(contact);
         }
       });
   }
