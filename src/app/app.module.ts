@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -13,18 +14,21 @@ import { ContactsListComponent } from './contacts-list/contacts-list.component';
 import { ContactsAppRoutes } from './app.routes';
 
 import { ContactsService } from './contacts.service';
+import { ContactsEditorComponent } from './contacts-editor/contacts-editor.component';
 
 @NgModule({
   declarations: [
     ContactsAppComponent,
     ContactsDetailComponent,
     ContactsHeaderComponent,
-    ContactsListComponent
+    ContactsListComponent,
+    ContactsEditorComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(ContactsAppRoutes),
-    HttpModule
+    HttpModule,
+    FormsModule
   ],
   bootstrap: [ContactsAppComponent],
   providers: [ContactsService]
