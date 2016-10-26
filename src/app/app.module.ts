@@ -12,10 +12,8 @@ import { ContactsEditorComponent } from './contacts-editor/contacts-editor.compo
 import { ContactsHeaderComponent } from './contacts-header/contacts-header.component';
 import { ContactsListComponent } from './contacts-list/contacts-list.component';
 
-import { API_ENDPOINT } from './app.tokens';
 import { ContactsAppRoutes } from './app.routes';
-
-import { ContactsService } from './contacts.service';
+import { APP_PROVIDERS } from './app.providers';
 
 @NgModule({
   declarations: [
@@ -32,10 +30,7 @@ import { ContactsService } from './contacts.service';
     FormsModule
   ],
   bootstrap: [ContactsAppComponent],
-  providers: [
-    {provide: API_ENDPOINT, useValue: 'http://localhost:4201/api'},
-    ContactsService
-  ]
+  providers: APP_PROVIDERS
 })
 export class ContactsModule {
 
