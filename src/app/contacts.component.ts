@@ -8,5 +8,5 @@ import { CONTACT_DATA } from './data/contact-data';
   styleUrls: ['contacts.component.css']
 })
 export class ContactsAppComponent {
-  contacts: Contact[] = CONTACT_DATA;
+  contacts: Array<Contact> = CONTACT_DATA;
 }
