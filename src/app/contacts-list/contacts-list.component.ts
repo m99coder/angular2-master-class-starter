@@ -5,6 +5,7 @@ import { ContactsService } from '../contacts.service';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 import { EventBusService } from '../event-bus.service';
+import { APP_TITLE_CHANGE } from '../models/event-bus-args';
 
 @Component({
   selector: 'trm-contacts-list',
@@ -23,7 +24,7 @@ export class ContactsListComponent implements OnInit {
 
   ngOnInit() {
 
-    this.eventBusService.emit('appTitleChange', 'Contacts');
+    this.eventBusService.emit(APP_TITLE_CHANGE, 'Contacts');
 
     /*
     // short form with sophisticated search method

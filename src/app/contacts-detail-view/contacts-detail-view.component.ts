@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Contact } from '../models/contact';
 import { ContactsService } from '../contacts.service';
 import { EventBusService } from '../event-bus.service';
+import { APP_TITLE_CHANGE } from '../models/event-bus-args';
 
 @Component({
   selector: 'trm-contacts-detail-view',
@@ -25,7 +26,7 @@ export class ContactsDetailViewComponent implements OnInit {
     this.contactsService.getContact(id)
       .subscribe(contact => {
         this.contact = contact;
-        this.eventBusService.emit('appTitleChange', contact.name);
+        this.eventBusService.emit(APP_TITLE_CHANGE, contact.name);
       });
   }
 

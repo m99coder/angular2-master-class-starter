@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ContactsService } from '../contacts.service';
 import { Contact } from '../models/contact';
 import { EventBusService } from '../event-bus.service';
+import { APP_TITLE_CHANGE } from '../models/event-bus-args';
 
 @Component({
   selector: 'trm-contacts-editor',
@@ -26,7 +27,7 @@ export class ContactsEditorComponent implements OnInit {
     this.contactsService.getContact(id)
       .subscribe(contact => {
         this.contact = contact;
-        this.eventBusService.emit('appTitleChange', `Editing: ${contact.name}`);
+        this.eventBusService.emit(APP_TITLE_CHANGE, `Editing: ${contact.name}`);
       });
   }
 
