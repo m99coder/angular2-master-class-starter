@@ -7,9 +7,9 @@
             <i class="material-icons prefix">account_circle</i><input id="name" name="name" class="validate" ngModel required minlength="3" #name="ngModel"
               [ngClass]="{'invalid': !name.valid && !name.pristine}">
             <label class="active" for="name">Name</label>
-            <div *ngIf="!name.valid && !name.pristine">
-              <p class="error-msg" *ngIf="name?.errors?.required">Is required</p>
-              <p class="error-msg" *ngIf="name?.errors?.minlength">{{ name.errors.minlength.requiredLength - name.errors.minlength.actualLength }} more chars required</p>
+            <div *ngIf="name.errors && !name.pristine">
+              <p class="error-msg" *ngIf="name.errors.required">Is required</p>
+              <p class="error-msg" *ngIf="name.errors.minlength">At least {{ name.errors.minlength.requiredLength }} chars required</p>
             </div>
           </div>
         </div>
