@@ -29,7 +29,6 @@ export class ContactsListComponent implements OnInit {
         .distinctUntilChanged()
         .switchMap(term => this.contactsService.search(term))
         .merge(this.contactsService.getContacts());
-    */
 
     // more explicit form
     let initialResults = this.contactsService.getContacts();
@@ -38,9 +37,15 @@ export class ContactsListComponent implements OnInit {
       this.terms$
         .debounceTime(400)
         .distinctUntilChanged()
-        .switchMap(term => this.contactsService.search(term));
+        .switchMap(term => this.contactsService.searchRaw(term));
 
     this.contacts = initialResults.merge(searchResults);
+    */
+
+    // with sophisticated search method
+    this.contacts =
+      this.contactsService.search(this.terms$, 400)
+        .merge(this.contactsService.getContacts());
 
   }
 
