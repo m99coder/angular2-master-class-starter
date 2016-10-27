@@ -25,7 +25,7 @@ export class ContactsCreatorComponent implements OnInit {
     this.contactsService.addContact(contact)
       .subscribe(res => {
         if (res.status === 200) {
-          this.router.navigate(['/contact']);
+          this.router.navigate(['/']);
         }
       });
   }
