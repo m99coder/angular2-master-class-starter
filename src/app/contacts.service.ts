@@ -28,6 +28,10 @@ export class ContactsService {
     return this.http.put(`${this.api}/contacts/${contact.id}`, contact);
   }
 
+  addContact(contact: Contact) {
+    return this.http.post(`${this.api}/contacts`, contact);
+  }
+
   searchRaw(term: string) {
     let params: URLSearchParams = new URLSearchParams();
     params.set('text', term);
