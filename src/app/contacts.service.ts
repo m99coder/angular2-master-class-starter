@@ -1,4 +1,4 @@
-import { Http } from '@angular/http';
+import {Http, URLSearchParams} from '@angular/http';
 import { Injectable, Inject } from '@angular/core';
 
 import { Contact } from './models/contact';
@@ -27,6 +27,15 @@ export class ContactsService {
 
   updateContact(contact: Contact) {
     return this.http.put(`${this.api}/contacts/${contact.id}`, contact);
+  }
+
+  search(term: string) {
+    let params: URLSearchParams = new URLSearchParams();
+    params.set('text', term);
+
+    return this.http.get(`${this.api}/search`, {search: params})
+      .map(res => res.json())
+      .map(data => data.items);
   }
 
 }
