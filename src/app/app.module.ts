@@ -27,8 +27,7 @@ import { APP_PROVIDERS } from './app.providers';
     ContactsDetailViewComponent,
     ContactsHeaderComponent,
     ContactsListComponent,
-    ContactsEditorComponent,
-    ContactsDetailViewComponent
+    ContactsEditorComponent
   ],
   imports: [
     BrowserModule,
