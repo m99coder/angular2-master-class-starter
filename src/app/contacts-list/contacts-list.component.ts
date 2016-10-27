@@ -44,8 +44,4 @@ export class ContactsListComponent implements OnInit {
 
   }
 
-  search(term: string) {
-    this.contacts = this.contactsService.search(term);
-  }
-
 }
