@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Contact } from '../models/contact';
 import { ContactsService } from '../contacts.service';
-import { EventBusService } from '../event-bus.service';
-import { APP_TITLE_CHANGE } from '../models/event-bus-args';
+import { EventBusService, APP_TITLE_CHANGE } from '../event-bus.service';
 
 @Component({
   selector: 'trm-contacts-detail-view',

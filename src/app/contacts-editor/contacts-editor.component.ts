@@ -3,8 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { ContactsService } from '../contacts.service';
 import { Contact } from '../models/contact';
-import { EventBusService } from '../event-bus.service';
-import { APP_TITLE_CHANGE } from '../models/event-bus-args';
+import { EventBusService, APP_TITLE_CHANGE } from '../event-bus.service';
 
 @Component({
   selector: 'trm-contacts-editor',
