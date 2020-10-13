@@ -44,7 +44,7 @@
     "karma-jasmine": "0.3.8",
     "karma-remap-istanbul": "0.2.1",
     "minimatch": "3.0.2",
-    "morgan": "1.7.0",
+    "morgan": "1.9.1",
     "object-assign": "4.1.0",
     "protractor": "3.3.0",
     "through": "2.3.8",
